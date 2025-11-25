@@ -1,76 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sabin — Interactive Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      background: #0d1b2a;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
-    header {
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(6px);
-    }
-    .container {
-      padding: 60px;
-      max-width: 900px;
-      margin: auto;
-    }
-    canvas { display: block; margin: auto; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabin | Electronics & Embedded Portfolio</title>
+
+    <style>
+        /* ------------------- GLOBAL STYLE ------------------- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: #0a0a0a url('https://i.imgur.com/DVjZ3Qv.png');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: #0ef;
+        }
+
+        header p {
+            font-size: 1.1rem;
+        }
+
+        /* ------------------- NAVBAR ------------------- */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px;
+            background: #000000d5;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0ef;
+            font-weight: bold;
+        }
+
+        /* ------------------- SECTION TITLE ------------------- */
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            color: #0ef;
+            font-size: 2.2rem;
+        }
+
+        /* ------------------- ABOUT SECTION ------------------- */
+        #about {
+            width: 80%;
+            margin: auto;
+            background: rgba(0,0,0,0.5);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        /* ------------------- PROJECT SECTION ------------------- */
+        #projects {
+            width: 85%;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            display: flex;
+            background: #111;
+            padding: 20px;
+            border-radius: 12px;
+            gap: 20px;
+            border: 1px solid #333;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            border-color: #0ef;
+        }
+
+        .project-card img {
+            width: 220px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .project-content h3 {
+            margin: 0;
+            color: #0ef;
+            font-size: 1.5rem;
+        }
+
+        .project-content ul {
+            margin-top: 10px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 8px 14px;
+            background: #0ef;
+            color: #000;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        /* ------------------- CONTACT ------------------- */
+        #contact {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0,0,0,0.6);
+            margin-top: 50px;
+        }
+
+    </style>
 </head>
 <body>
-  <header>
-    <h2>Sabin</h2>
+
+    <!-- ---------------- HEADER ---------------- -->
+    <header>
+        <h1>Sabin — Electronics & Embedded Engineer</h1>
+        <p>Smart Projects | IoT | Arduino | VLSI | Automation Systems</p>
+    </header>
+
+    <!-- ---------------- NAVBAR ---------------- -->
     <nav>
-      <a href="#" style="color:white; margin-right:20px;">About</a>
-      <a href="#projects" style="color:white; margin-right:20px;">Projects</a>
-      <a href="#contact" style="color:white;">Contact</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </header>
 
-  <div class="container">
-    <h1>Hello — I'm Sabin</h1>
-    <p>
-      Electronics & Communication engineering student building smart industrial systems, embedded projects, and interactive web experiences.
-    </p>
+    <!-- ---------------- ABOUT SECTION ---------------- -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am an Electronics and Communication Engineering student passionate about Embedded Systems,
+            VLSI, IoT, PCB Design, and Automation. I have hands-on experience in Arduino, sensors,
+            NodeMCU, EasyEDA, Tinkercad, LTspice, and real-time industrial automation systems.
+        </p>
+    </section>
 
-    <h2 id="projects">3D Project Card Demo</h2>
-    <p>If this 3D cube rotates, then the website is working correctly.</p>
+    <!-- ---------------- PROJECT SECTION ---------------- -->
+    <section id="projects">
+        <h2>Projects</h2>
 
-    <canvas id="scene" width="500" height="300"></canvas>
-  </div>
+        <!-- 🔥 NEW Smart Industrial Project Card -->
+        <div class="project-card">
+            <img src="https://i.imgur.com/ov1UHfs.jpeg" alt="Smart Industrial Automation System">
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-  <script>
-    const canvas = document.getElementById("scene");
-    const renderer = new THREE.WebGLRenderer({ canvas });
-    renderer.setSize(500, 300);
+            <div class="project-content">
+                <h3>Smart Industrial Automation System</h3>
+                <p>
+                    A complete industrial monitoring system using Arduino Uno, sensors, Blynk IoT and LCD display.
+                    It monitors temperature, current, RPM, vibration, and pressure with real-time alerts.
+                </p>
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(70, 500/300, 0.1, 1000);
-    camera.position.z = 3;
+                <ul>
+                    <li>✔ Temperature (DHT11)</li>
+                    <li>✔ Current Sensor</li>
+                    <li>✔ RPM using IR Sensor</li>
+                    <li>✔ Vibration Detection</li>
+                    <li>✔ Pressure Sensor</li>
+                    <li>✔ Blynk IoT Mobile Dashboard</li>
+                    <li>✔ LCD Display Output</li>
+                </ul>
 
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshNormalMaterial();
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+                <a href="#" class="project-btn">View Project</a>
+            </div>
+        </div>
 
-    function animate() {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    }
-    animate();
-  </script>
+        <!-- Add more projects below if needed -->
+    </section>
+
+    <!-- ---------------- CONTACT SECTION ---------------- -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: sabin***@gmail.com</p>
+        <p>GitHub: github.com/sabin74</p>
+    </section>
+
 </body>
 </html>
